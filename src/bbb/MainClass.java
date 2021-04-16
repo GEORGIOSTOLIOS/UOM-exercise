@@ -125,7 +125,7 @@ public class MainClass {
 			}
 			
 		}
-		System.out.println(existingUsers.get(0).getUserName());
+		System.out.println("mia dokimh");
 		 LoginFrame lf = new LoginFrame(existingUsers,gList);}
 		
 		}
