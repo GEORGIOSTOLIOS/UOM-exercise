@@ -3,9 +3,6 @@ package bbb;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-
-
-
 import aaa.Group;
 
 
@@ -18,9 +15,9 @@ private ArrayList<User> List_Of_Friends;
 private ArrayList<Group>List_Of_Groups;
 private ArrayList<Post> pList;
 
-public User(String un, String ue) {
+ public User(String un, String ue) {
 	
-	this.user_name = un;
+    this.user_name = un;
     this.user_email = ue;
     this.List_Of_Friends = new ArrayList<User>();
     this.List_Of_Groups = new ArrayList<Group>();
