@@ -1,10 +1,10 @@
 package bbb;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 import aaa.ClosedGroup;
@@ -19,8 +19,8 @@ public class MainClass {
 	public static void main(String[] args) {
 		File f = new File("save.ser");
 		File f1 = new File("save1.ser");
-		ArrayList<User> existingUsers = new ArrayList<User>();
-		ArrayList<Group> gList = new ArrayList<Group>();
+		ArrayList<User> existingUsers = new ArrayList<>();
+		ArrayList<Group> gList = new ArrayList<>();
 		if(!f.exists()) {
 			System.out.println(" den yparxei");
 	
@@ -35,18 +35,18 @@ public class MainClass {
 		
 		
 		
-		u1.addToFriends(u2);
-		u1.addToFriends(u5);
-		u5.addToFriends(u6);
-		u3.addToFriends(u4);
+		Objects.requireNonNull(u1).addToFriends(Objects.requireNonNull(u2));
+		u1.addToFriends(Objects.requireNonNull(u5));
+		u5.addToFriends(Objects.requireNonNull(u6));
+		Objects.requireNonNull(u3).addToFriends(Objects.requireNonNull(u4));
 		u3.addToFriends(u2);
 		u4.addToFriends(u6);
 		u5.addToFriends(u3);
 		u1.addToFriends(u6);
 		u5.addToFriends(u2);
-		u7.addToFriends(u1);
+		Objects.requireNonNull(u7).addToFriends(u1);
 		
-		ArrayList<User> commonFriends = new ArrayList<User>();
+		ArrayList<User> commonFriends = new ArrayList<>();
 		commonFriends = u5.FindCommonFriendsWith(u4);
 		u5.printCommonFriendsWith( u4,commonFriends);
 		commonFriends = u1.FindCommonFriendsWith(u5);
@@ -74,7 +74,7 @@ public class MainClass {
 		g1.printMembersOfGroup();
 		g2.printMembersOfGroup();
 		
-		ArrayList<String> pcList = new ArrayList<String>();
+		ArrayList<String> pcList = new ArrayList<>();
 		pcList = u4.FindPossibleCases();
 		u4.printPossibleCases(pcList);
 		
@@ -102,28 +102,22 @@ public class MainClass {
 				existingUsers =(ArrayList<User>) oist.readObject();
 				oist.close();
 				fis.close();
-			} catch (IOException e) {
+			} catch (IOException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			
+
 			try {
 				FileInputStream fis = new FileInputStream(f1);
 				ObjectInputStream oist = new ObjectInputStream(fis);
 				gList =(ArrayList<Group>) oist.readObject();
 				oist.close();
 				fis.close();
-			} catch (IOException e) {
+			} catch (IOException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			
+
 		}
 		System.out.println("mia dokimh");
 		 LoginFrame lf = new LoginFrame(existingUsers,gList);}

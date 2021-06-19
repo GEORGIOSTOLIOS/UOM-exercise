@@ -18,9 +18,8 @@ public class DataEntry {
 			
 			
 			if(am_direction_name.equals("ics") || am_direction_name.equals("iis") || am_direction_name.equals("dai") ) {
-			  User	aUser = new User(name, email);
-				
-				return  aUser;
+
+				return new User(name, email);
 				
 			
 			

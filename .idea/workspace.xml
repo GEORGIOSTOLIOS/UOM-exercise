@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41cf7b78-1b5a-42af-b8cb-fab3092e39a7" name="Default Changelist" comment="Removed custom contains methods and added overrided.">
+    <list default="true" id="41cf7b78-1b5a-42af-b8cb-fab3092e39a7" name="Default Changelist" comment="Removed some warnings again.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save.ser" beforeDir="false" afterPath="$PROJECT_DIR$/save.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save1.ser" beforeDir="false" afterPath="$PROJECT_DIR$/save1.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aaa/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aaa/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bbb/DataEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bbb/DataEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bbb/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bbb/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bbb/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bbb/MainClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bbb/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bbb/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bbb/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bbb/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bbb/UserPageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bbb/UserPageFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bbb/inflectionsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bbb/inflectionsFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +21,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1rG3tcn2SicOfODNGYIIgd0evTS" />
   <component name="ProjectViewState">
@@ -33,6 +40,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunManager">
     <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -77,8 +85,16 @@
       <workItem from="1623961272849" duration="2213000" />
       <workItem from="1623963512696" duration="501000" />
       <workItem from="1623964549036" duration="6000" />
-      <workItem from="1624112412944" duration="4018000" />
+      <workItem from="1624112412944" duration="5765000" />
     </task>
+    <task id="LOCAL-00001" summary="Removed some warnings.">
+      <created>1624118029525</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1624118029525</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +114,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed custom contains methods and added overrided." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed custom contains methods and added overrided." />
+    <MESSAGE value="Removed some warnings." />
+    <MESSAGE value="Removed some warnings again." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed some warnings again." />
   </component>
 </project>

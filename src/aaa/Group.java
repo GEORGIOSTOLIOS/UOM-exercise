@@ -7,14 +7,14 @@ import bbb.User;
 
 public class Group implements Serializable{
 
-protected String group_name;
-protected String group_description;
-protected ArrayList<User> List_of_Users;
+protected final String group_name;
+protected final String group_description;
+protected final ArrayList<User> List_of_Users;
 
 	public Group(String gn,String gd) {
 		group_name = gn;
 		group_description = gd;
-		List_of_Users = new ArrayList<User>();
+		List_of_Users = new ArrayList<>();
 	}
 	
 	public String getGroupName() {

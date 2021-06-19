@@ -17,29 +17,26 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class inflectionsFrame extends JFrame {
-private JPanel panel;
-private JList<String> ulist;
-private JButton backButton;
-private LoginFrame login;
+	private final JButton backButton;
+private final LoginFrame login;
 
-private ArrayList<String> cList = new ArrayList<String>();
-
-public inflectionsFrame(User aUser,LoginFrame lf) {
-	panel = new JPanel();
+	@SuppressWarnings("SpellCheckingInspection")
+	public inflectionsFrame(User aUser, LoginFrame lf) {
+		JPanel panel = new JPanel();
 	login = lf;
-	
-	ulist = new JList<String>();
-	DefaultListModel<String> model = new DefaultListModel<String>();
-	cList = aUser.FindPossibleCases();
+
+		JList<String> uList = new JList<>();
+	DefaultListModel<String> model = new DefaultListModel<>();
+		ArrayList<String> cList = aUser.FindPossibleCases();
 	model.addElement("************************************************************************\t");
 	model.addElement(aUser.getUserName()+  " has been infected. The following users have to be tested");
 	model.addElement("************************************************************************\t");
 	for(String name: cList) {
 		model.addElement(name);
 	}
-	ulist.setModel(model);
+	uList.setModel(model);
 	
-	panel.add(ulist);
+	panel.add(uList);
 	
 	backButton = new JButton("Back to Login Screen");
 	panel.add(backButton);
@@ -53,7 +50,7 @@ public inflectionsFrame(User aUser,LoginFrame lf) {
 	
 	this.setVisible(true);
 	this.setSize(400, 400);
-	this.setTitle("ÐéèáíÞ ÌåôÜäïóç Éïý");
+	this.setTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	

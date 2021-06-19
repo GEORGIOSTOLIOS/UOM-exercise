@@ -19,12 +19,12 @@ import java.util.Locale;
 public class Post implements Comparable<Post>,Serializable {
 
 private Date timestamp;
-private String aPost;
-private User aUser;
+private final String aPost;
+private final User aUser;
 private static final Locale GREEK_LOCALE = new Locale("el", "GR");
 public static final DateFormat USER_DF_TIME = DateFormat.getDateTimeInstance(DateFormat.LONG,
         DateFormat.SHORT,GREEK_LOCALE );
-String dateString =USER_DF_TIME.format(timestamp= new Date());
+final String dateString =USER_DF_TIME.format(timestamp= new Date());
 
 
 
