@@ -63,6 +63,8 @@ public int compareTo(Post p) {
 	return p.timestamp.compareTo(this.timestamp);
 }
 
-
-
+	@Override
+	public boolean equals(Object obj) {
+		return ((Post)obj).getPost().equals(this.aPost);
+	}
 }

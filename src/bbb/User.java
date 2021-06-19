@@ -9,19 +9,19 @@ import aaa.Group;
 
 public class User implements Serializable {
 
-private String user_name;
-private String user_email;
-private ArrayList<User> List_Of_Friends;
-private ArrayList<Group>List_Of_Groups;
-private ArrayList<Post> pList;
+private final String user_name;
+private final String user_email;
+private final ArrayList<User> List_Of_Friends;
+private final ArrayList<Group>List_Of_Groups;
+private final ArrayList<Post> pList;
 
  public User(String un, String ue) {
 	
     this.user_name = un;
     this.user_email = ue;
-    this.List_Of_Friends = new ArrayList<User>();
-    this.List_Of_Groups = new ArrayList<Group>();
-    this.pList = new ArrayList<Post>();
+    this.List_Of_Friends = new ArrayList<>();
+    this.List_Of_Groups = new ArrayList<>();
+    this.pList = new ArrayList<>();
     
 }
 
@@ -37,14 +37,14 @@ private ArrayList<Post> pList;
  public boolean isFriendwith(User aUser) {
 	
 	for(User f: List_Of_Friends) {
-		if(f.user_email.equals(aUser.user_email)) return true;
+		if(f.equals(aUser)) return true;
 	}
 	return false;
 }
  
  public ArrayList<User> getSuggestedFriends(){
 	
-	 ArrayList<User> sfList = new ArrayList<User>();
+	 ArrayList<User> sfList = new ArrayList<>();
 	 
 	 for(User friend :List_Of_Friends) {
 		
@@ -53,7 +53,7 @@ private ArrayList<Post> pList;
 		 if(!tempList.isEmpty()) {
 			 
 			   for(User friendofriend : friend.List_Of_Friends) {
-				   if(!isFriendwith(friendofriend) && !containsUser(sfList, friendofriend) && friendofriend.user_email != this.user_email) {
+				   if(!isFriendwith(friendofriend) && !sfList.contains(friendofriend)) {
 					   sfList.add(friendofriend);
 				   }
 			   }
@@ -71,10 +71,10 @@ private ArrayList<Post> pList;
  }
  
  public ArrayList<Post> getAllPosts(){
-	 ArrayList<Post> totalPosts = new ArrayList<Post>();
+	 ArrayList<Post> totalPosts = new ArrayList<>();
 	 
 	 for(Post p : pList) {
-		 if(!containsPost(totalPosts,  p)) {
+		 if(!totalPosts.contains(p)) {
 		 totalPosts.add(p);}
 		 
 	 }
@@ -83,7 +83,7 @@ private ArrayList<Post> pList;
 		 
 		 for(Post p : aUser.pList) {
 			
-			 if(!containsPost(totalPosts,  p)) {
+			 if(!totalPosts.contains(p)) {
 				 totalPosts.add(p);
 				
 			 }
@@ -100,7 +100,7 @@ private ArrayList<Post> pList;
 
  public void addToFriends(User aUser){
  
-	if(aUser.user_email != this.user_email && !isFriendwith(aUser)) {
+	if(!aUser.equals(this) && !isFriendwith(aUser)) {
 		List_Of_Friends.add(aUser);
 		aUser.List_Of_Friends.add(this);
 		System.out.println(this.user_name+" and "+aUser.user_name+" are now friends!");}
@@ -112,7 +112,7 @@ private ArrayList<Post> pList;
 @SuppressWarnings("unchecked")
 public ArrayList<User> FindCommonFriendsWith(User aUser) {
   
- ArrayList<User> cfsList = new ArrayList<User>();
+ ArrayList<User> cfsList;
  cfsList =(ArrayList<User>)List_Of_Friends.clone(); 
  cfsList.retainAll(aUser.List_Of_Friends);
  
@@ -173,15 +173,15 @@ public void printCommonFriendsWith(User aUser,ArrayList<User> cfsList) {
 	System.out.println(this.user_name+"  has been infected. The following users have to be tested");
 	System.out.println("*******************************");
 	
-	ArrayList<String> pcList = new ArrayList<String>();
+	ArrayList<String> pcList = new ArrayList<>();
 	
 	for(User userfriend: List_Of_Friends) {
-		 if(!pcList.contains(userfriend.user_name) && userfriend.user_name != this.user_name)	pcList.add(userfriend.user_name);
+		 if(!pcList.contains(userfriend.user_name) && !userfriend.equals(this))	pcList.add(userfriend.user_name);
 	
 		
 		 for(User friendOfUserFriend:userfriend.List_Of_Friends) {
 			   
-			 if(!pcList.contains(friendOfUserFriend.user_name) && friendOfUserFriend.user_name != this.user_name) {
+			 if(!pcList.contains(friendOfUserFriend.user_name) && !friendOfUserFriend.equals(this)  ) {
 				 pcList.add(friendOfUserFriend.user_name);
 			 }
 		
@@ -206,27 +206,15 @@ public void printCommonFriendsWith(User aUser,ArrayList<User> cfsList) {
 	 
 	 System.out.println("-----------------------------");
  }
- 
- public boolean containsPost( ArrayList<Post> pList,  Post p){
 
-                for(Post po : pList) {
-                	if(p.getPost().equals(po.getPost()))return true;
-                }
-                return false;
-	}
- 
- public boolean containsUser(ArrayList<User> uList,User aUser) {
-	 for(User u : uList) {
-		 
-		 if(u.user_email.equals(aUser.user_email)) {
-			 return true;
-		 }
-	 }
-	 return false;
- }
 
- 
 
+
+	@Override
+	public boolean equals(Object obj) {
+     	if (!(obj instanceof User)) return false;
+ 	 	return ((User) obj).getUserEmail().equals(this.user_email);
+   }
 }
 
 
